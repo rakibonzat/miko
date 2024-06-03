@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plyr.io Video Player</title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.7/plyr.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #player-container {
+      position: relative;
+      width: 100%;
+    }
+    #player {
+      width: 100%;
+    }
+    #quality-switch {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 8px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #quality-switch:hover {
+      background-color: #0056b3;
+    }
+    #quality-menu {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 8px;
+      display: none;
+    }
+    #quality-menu button {
+      display: block;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding: 4px 0;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #quality-menu button:last-child {
+      border-bottom: none;
+    }
+    #quality-menu button:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+<div id="player-container">
+  <video id="player" controls>
+    <source src="https://betube7.wordpress.com/wp-content/uploads/2024/06/wp-1717390094099.mp4" type="video/mp4" data-quality="720p">
+  </video>
+  <button id="quality-switch">Quality</button>
+  <div id="quality-menu">
+    <button data-quality="720p">720p</button>
+    <button data-quality="480p">480p</button>
+    <button data-quality="144p">144p</button>
+  </div>
+</div>
+
+<script src="https://cdn.plyr.io/3.6.7/plyr.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const player = new Plyr('#player', {
+      controls: ['play', 'progress', 'current-time', 'mute', 'volume', 'settings', 'fullscreen'],
+      settings: ['quality', 'speed'],
+    });
+
+    const qualitySwitch = document.getElementById('quality-switch');
+    const qualityMenu = document.getElementById('quality-menu');
+
+    qualitySwitch.addEventListener('click', () => {
+      if (qualityMenu.style.display === 'block') {
+        qualityMenu.style.display = 'none';
+      } else {
+        qualityMenu.style.display = 'block';
+      }
+    });
+
+    const qualityButtons = document.querySelectorAll('#quality-menu button');
+    qualityButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const quality = button.getAttribute('data-quality');
+        switchQuality(quality);
+        qualityMenu.style.display = 'none';
+      });
+    });
+
+    function switchQuality(quality) {
+      const currentTime = player.currentTime;
+
+      player.pause();
+
+      player.source = {
+        type: 'video',
+        sources: [{
+          src: getNewSourceUrl(quality),
+          type: 'video/mp4',
+        }],
+      };
+
+      player.currentTime = currentTime;
+      player.play();
+    }
+
+    function getNewSourceUrl(quality) {
+      switch (quality) {
+        case '720p':
+          return 'https://betube7.wordpress.com/wp-content/uploads/2024/06/wp-1717390094099.mp4';
+        case '480p':
+          return 'https://betube7.wordpress.com/wp-content/uploads/2024/06/wp-1717390256042.mp4';
+        case '144p':
+          return 'https://betube7.wordpress.com/wp-content/uploads/2024/06/wp-1717390350634.mp4';
+        default:
+          return '';
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
