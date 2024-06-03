@@ -1,5 +1,0 @@
-#EXTM3U
-#EXT-X-STREAM-INF:BANDWIDTH=150000,RESOLUTION=256x144
-https://filesamples.com/samples/video/mp4/sample_640x360.mp4
-#EXT-X-STREAM-INF:BANDWIDTH=2000000,RESOLUTION=1280x720
-https://filesamples.com/samples/video/mp4/sample_960x540.mp4
