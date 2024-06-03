@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f4f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header {
+            background-color: #4CAF50;
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .header a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            background-color: #4CAF50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .header a:hover {
+            background-color: #45a049;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .content h1 {
+            margin: 0 0 20px 0;
+            font-size: 32px;
+        }
+        .screenshots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .screenshots img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        .screenshots img:hover {
+            transform: scale(1.05);
+        }
+        @media (max-width: 768px) {
+            .header a {
+                font-size: 20px;
+                padding: 8px 16px;
+            }
+            .content h1 {
+                font-size: 28px;
+            }
+        }
+        @media (max-width: 480px) {
+            .header a {
+                font-size: 18px;
+                padding: 6px 12px;
+            }
+            .content h1 {
+                font-size: 24px;
+            }
+            .screenshots {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="https://rocklinks.net/gomiko" target="_blank">Open Sony Miko</a>
+    </div>
+    <div class="content">
+        <h1>Screenshot Showcase</h1>
+        <div class="screenshots">
+            <img src="https://smiko.vercel.app/1.jpg" alt="Screenshot 1">
+            <img src="https://smiko.vercel.app/2.jpg" alt="Screenshot 2">
+            <img src="https://smiko.vercel.app/3.jpg" alt="Screenshot 3">
+            <img src="https://smiko.vercel.app/4.jpg" alt="Screenshot 4">
+            <img src="https://smiko.vercel.app/5.jpg" alt="Screenshot 5">
+            <img src="https://smiko.vercel.app/6.jpg" alt="Screenshot 6">
+        </div>
+    </div>
+</body>
+</html>
