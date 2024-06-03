@@ -1,5 +1,5 @@
 #EXTM3U
 #EXT-X-STREAM-INF:BANDWIDTH=150000,RESOLUTION=256x144
-https://miko2.vercel.app/vid-144.m3u8
+https://filesamples.com/samples/video/mp4/sample_640x360.mp4
 #EXT-X-STREAM-INF:BANDWIDTH=2000000,RESOLUTION=1280x720
-https://miko2.vercel.app/vid-480.m3u8
+https://filesamples.com/samples/video/mp4/sample_960x540.mp4
